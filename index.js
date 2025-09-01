@@ -19,6 +19,14 @@ app.use('/api/blood', bloodRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/blood', bloodRequestRoutes);
 
+app.get("/test-secret", (req, res) => {
+    if (!process.env.JWT_SECRET) {
+        return res.status(500).json({ error: "JWT_SECRET is missing!" });
+    }
+    res.json({ JWT_SECRET: process.env.JWT_SECRET });
+});
+
+
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
