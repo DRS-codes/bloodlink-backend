@@ -15,7 +15,7 @@ exports.createBloodRequest = async (req, res) => {
         // Validate that all requested institutions exist and are "institution" role
         const institutions = await User.find({
             _id: { $in: requestedInstitutions },
-            role: "institution"
+            role: "provider"
         });
 
         if (institutions.length !== requestedInstitutions.length) {
