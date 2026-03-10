@@ -17,6 +17,8 @@ app.use(cors(
     }
 ));
 
+app.options("*", cors());
+
 
 const bloodRoutes = require('./routes/bloodRoutes');
 const userRoutes = require('./routes/userRoutes');
