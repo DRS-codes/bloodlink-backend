@@ -3,14 +3,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 
-
-const bloodRoutes = require('./routes/bloodRoutes');
-const userRoutes = require('./routes/userRoutes');
-const bloodRequestRoutes = require('./routes/bloodRequestRoutes');
-
-const app = express();
-
-// Middleware
 app.use(cors(
     {
         origin: [
@@ -22,6 +14,16 @@ app.use(cors(
         credentials: true
     }
 ));
+
+
+const bloodRoutes = require('./routes/bloodRoutes');
+const userRoutes = require('./routes/userRoutes');
+const bloodRequestRoutes = require('./routes/bloodRequestRoutes');
+
+const app = express();
+
+// Middleware
+
 app.use(express.json());
 
 // Routes
